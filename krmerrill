@@ -1,0 +1,21 @@
+import tkinter;
+
+parent = tkinter.Tk(); #create the object
+parent.overrideredirect(1); #don't disapear
+parent.withdraw();
+
+from tkinter import simpledialog
+
+
+
+prevamount = simpledialog.askfloat('Previous', 'What was amount at last reconclie?', minvalue = -100000.00, maxvalue = 100000.00, parent = parent);
+myexpence = simpledialog.askfloat('Expences', 'What is the current expences?', minvalue = 0, maxvalue = 100000.00, parent = parent);
+myincome = simpledialog.askfloat('Income', 'What is the current income?', minvalue = 0, maxvalue = 100000.00, parent = parent);
+
+current = prevamount + myincome - myexpence;
+finalval = round(current, 2) 
+
+from tkinter import messagebox
+
+info = messagebox.showinfo('Current Balance', finalval, parent = parent);
+print(prevamount, myexpence, myincome, finalval);
